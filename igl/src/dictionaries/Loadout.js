@@ -1,3 +1,6 @@
+import Havoc from "../images/weapons/Havoc.png"
+import Flatline from "../images/weapons/Flatline.png"
+
 export let weapons = [
   "HAVOC Rifle",
   "VK-47 Flatline",
@@ -28,3 +31,14 @@ export let weapons = [
   "P2020",
   "Wingman",
 ];
+
+export let weaponsWithImages = [
+    {
+        weapon:  "HAVOC Rifle",
+        img: Havoc
+    },
+    {
+        weapon: "VK-47 Flatline",
+        img: Flatline
+    }
+]

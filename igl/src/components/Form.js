@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { GiPistolGun } from "react-icons/gi";
-import { AiOutlineReload } from "react-icons/ai"
+import { AiOutlineReload } from "react-icons/ai";
 import { weapons } from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
 
@@ -76,7 +76,7 @@ const Form = () => {
             </h1>
             <form
               action=""
-              class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl"
+              class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-apexred"
               onSubmit={handleSubmission}
             >
               {/* <p class="text-lg font-medium">Sign in to your account</p> */}
@@ -143,7 +143,7 @@ const Form = () => {
 
               <button
                 type="submit"
-                class="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg"
+                class="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg bg-apexblue"
               >
                 Ready Up
               </button>

@@ -1,9 +1,11 @@
+import ApexBanner from "../images/apexbanner.jpg"
+
 const BruceBanner = () => {
   return (
-    <section class="text-white bg-gray-900">
+    <section class={`text-white bg-apex-banner`}>
       <div class="max-w-screen-xl px-4 py-10 mx-auto lg:items-center lg:flex">
         <div class="max-w-3xl mx-auto text-center">
-          <h1 class="text-3xl font-extrabold text-transparent sm:text-5xl bg-clip-text bg-gradient-to-r from-green-300 via-blue-500 to-purple-600">
+          <h1 class="text-3xl font-extrabold">
             APEX IGL Selector
           </h1>
 
@@ -13,6 +15,8 @@ const BruceBanner = () => {
         </div>
       </div>
     </section>
+
+    // <img src={ApexBanner} />
   );
 };
 
