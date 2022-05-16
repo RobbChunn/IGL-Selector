@@ -21,6 +21,7 @@ const LoadoutGrid = (props) => {
                 class="block border-2 border-sky-500 p-6 rounded-lg shadow-xl bg-white"
                 key={index}
               >
+                <span class="animate-ping w-20 h-20 bg-green rounded-full absolute -top-10 -left-10 m-4 p-1"></span>
                 <img
                   class="absolute h-20 w-20 rounded-full -top-10 -left-10 border-2 border-apexred m-4 p-1 bg-white"
                   src={Loba}
