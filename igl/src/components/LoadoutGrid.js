@@ -1,22 +1,5 @@
-const LoadoutGrid = (
-  loadout = [
-    {
-      username: "bro",
-      primary: "gay",
-      secondary: "supergay",
-    },
-    {
-      username: "bro2",
-      primary: "gay",
-      secondary: "supergay",
-    },
-    {
-      username: "bro3",
-      primary: "gay",
-      secondary: "supergay",
-    },
-  ]
-) => {
+const LoadoutGrid = (props) => {
+  const { loadouts } = props;
   return (
     <section>
       <div class="max-w-screen-xl px-4 py-2 mx-auto">
@@ -26,83 +9,50 @@ const LoadoutGrid = (
           <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
             Loadouts
           </h2>
+
         </div>
 
         <div class="grid grid-cols-2 mt-8 lg:grid-cols-3 gap-x-4 gap-y-8">
-          <a href="" class="block">
-            <div class="flex justify-center">
-              <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black">
-                {" "}
-                Chris
-              </strong>
-            </div>
+          {loadouts.map((currentLoadout, index) => (
+            <a href="" class="block" key={index}>
+              <div class="flex justify-center">
+                <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black">
+                  {" "}
+                  {currentLoadout.username}
+                </strong>
+              </div>
 
-            <img
-              alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
-              class="object-cover w-full -mt-3 h-96"
-            />
+              <img
+                alt="Trainer Product"
+                src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
+                class="object-cover w-full -mt-3 h-96"
+              />
 
-            <h5 class="mt-4 text-sm text-black/90">
-            Weapon
-            </h5>
+              <div class="flex items-center justify-between mt-4 font-bold flex-col">
+                <strong class="inline-flex items-center border border-gray-200 rounded relative px-2.5 py-1.5 text-xs font-medium m-auto mt-3 h-12">
+                  <span class="animate-ping w-2.5 h-2.5 bg-green-600/75 rounded-full absolute -top-1 -left-1"></span>
+                  <span class="w-2.5 h-2.5 bg-green-600 rounded-full absolute -top-1 -left-1"></span>
 
-            <div class="flex items-center justify-between mt-4 font-bold">
-              <p class="text-lg">$189.99</p>
+                  <span class="text-gray-700"> Primary: </span>
 
-              <p class="text-xs tracking-wide uppercase">6 Colors</p>
-            </div>
-          </a>
+                  <span class="text-green-700 ml-1.5">
+                    {currentLoadout.primary}
+                  </span>
+                </strong>
 
-          <a href="" class="block">
-            <div class="flex justify-center">
-              <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black">
-                {" "}
-                Robb
-              </strong>
-            </div>
+                <strong class="inline-flex items-center border border-gray-200 rounded relative px-2.5 py-1.5 text-xs font-medium m-auto mt-3 h-12">
+                  <span class="animate-ping w-2.5 h-2.5 bg-red-600/75 rounded-full absolute -top-1 -left-1"></span>
+                  <span class="w-2.5 h-2.5 bg-red-600 rounded-full absolute -top-1 -left-1"></span>
 
-            <img
-              alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
-              class="object-cover w-full -mt-3 h-96"
-            />
+                  <span class="text-gray-700"> Secondary: </span>
 
-            <h5 class="mt-4 text-sm text-black/90">
-              Weapon
-            </h5>
-
-            <div class="flex items-center justify-between mt-4 font-bold">
-              <p class="text-lg">$189.99</p>
-
-              <p class="text-xs tracking-wide uppercase">6 Colors</p>
-            </div>
-          </a>
-
-          <a href="" class="block">
-            <div class="flex justify-center">
-              <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-black">
-                {" "}
-                Tj
-              </strong>
-            </div>
-
-            <img
-              alt="Trainer Product"
-              src="https://images.unsplash.com/photo-1491553895911-0055eca6402d"
-              class="object-cover w-full -mt-3 h-96"
-            />
-
-            <h5 class="mt-4 text-sm text-black/90">
-            Weapon
-            </h5>
-
-            <div class="flex items-center justify-between mt-4 font-bold">
-              <p class="text-lg">$189.99</p>
-
-              <p class="text-xs tracking-wide uppercase">6 Colors</p>
-            </div>
-          </a>
+                  <span class="text-green-700 ml-1.5">
+                    {currentLoadout.secondary}
+                  </span>
+                </strong>
+              </div>
+            </a>
+          ))}
         </div>
       </div>
     </section>

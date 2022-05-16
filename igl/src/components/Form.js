@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { GiPistolGun } from "react-icons/gi";
+import { AiOutlineReload } from "react-icons/ai"
 import { weapons } from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
 
@@ -8,6 +9,8 @@ const Form = () => {
   const [username2, setUsername2] = useState("");
   const [username3, setUsername3] = useState("");
   const [loadoutLoaded, setLoadoutLoaded] = useState(false);
+
+  useEffect(() => {}, [loadoutLoaded]);
 
   const updateUsername1 = (e) => {
     setUsername1(e.target.value);
@@ -24,21 +27,38 @@ const Form = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
     setLoadoutLoaded(true);
-    console.table([username1, username2, username3]);
+    console.table(generateLoadout());
+  };
+
+  const getPrimaryWeapon = () => {
+    return weapons[Math.floor(Math.random() * weapons.length)];
+  };
+
+  const getSecondaryWeapons = () => {
+    return weapons[Math.floor(Math.random() * weapons.length)];
   };
 
   const generateLoadout = () => {
-    let primary = weapons[Math.floor(Math.random() * weapons.length)];
-    let secondary = weapons[Math.floor(Math.random() * weapons.length)];
-    const weaponsOfChoice = {
-      primary: primary,
-      secondary: secondary,
-    };
-    console.log(weaponsOfChoice);
-    return weaponsOfChoice;
+    const loadOutForAllTeamMembers = [
+      {
+        username: username1,
+        primary: getPrimaryWeapon(),
+        secondary: getSecondaryWeapons(),
+      },
+      {
+        username: username2,
+        primary: getPrimaryWeapon(),
+        secondary: getSecondaryWeapons(),
+      },
+      {
+        username: username3,
+        primary: getPrimaryWeapon(),
+        secondary: getSecondaryWeapons(),
+      },
+    ];
+    console.table(loadOutForAllTeamMembers);
+    return loadOutForAllTeamMembers;
   };
-
-  generateLoadout();
 
   return (
     <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
@@ -139,7 +159,23 @@ const Form = () => {
         )}
       </div>
 
-      {loadoutLoaded === true && <LoadoutGrid />}
+      {loadoutLoaded === true && (
+        <>
+          {" "}
+          <div class="block m-auto">
+            <button
+              class="flex items-center justify-center px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 m-auto"
+              onClick={() => setLoadoutLoaded(false)}
+            >
+              New Loadout{" "}
+              <span aria-hidden="true" class="ml-2 text-lg" role="img">
+                <AiOutlineReload />
+              </span>
+            </button>
+          </div>
+          <LoadoutGrid loadouts={generateLoadout()} />
+        </>
+      )}
     </div>
   );
 };
