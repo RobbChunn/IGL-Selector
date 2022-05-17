@@ -139,8 +139,15 @@ const Form = () => {
               {/* <p class="text-lg font-medium">Sign in to your account</p> */}
 
               <div>
-                <label for="team1" class="text-sm font-medium">
+                <label for="team1" class="relative text-sm font-medium">
                   Teammate 1
+                  <div class="flex mt-2">
+                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute top-0 left-24"></span>
+                    <span class="w-2.5 h-2.5 absolute top-0 left-28 text-xs">
+                      required
+                    </span>
+                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute top-0 left-24"></span>
+                  </div>
                 </label>
 
                 <div class="relative mt-1">
@@ -152,13 +159,7 @@ const Form = () => {
                     onChange={updateUsername1}
                     required={true}
                   />
-                  <div class="flex mt-2">
-                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
-                    <span class="w-2.5 h-2.5 absolute -bottom-1 left-3">
-                      required
-                    </span>
-                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
-                  </div>
+                  
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
                     <GiPistolGun />
                   </span>
@@ -166,8 +167,15 @@ const Form = () => {
               </div>
 
               <div>
-                <label for="team2" class="text-sm font-medium">
-                  Teamamte 2
+                <label for="team2" class="relative text-sm font-medium">
+                  Teammate 2
+                  <div class="flex mt-2">
+                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute top-0 left-24"></span>
+                    <span class="w-2.5 h-2.5 absolute top-0 left-28 text-xs">
+                      required
+                    </span>
+                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute top-0 left-24"></span>
+                  </div>
                 </label>
 
                 <div class="relative mt-1">
@@ -179,13 +187,7 @@ const Form = () => {
                     onChange={updateUsername2}
                     required={true}
                   />
-                  <div class="flex mt-2">
-                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
-                    <span class="w-2.5 h-2.5 absolute -bottom-1 left-3">
-                      required
-                    </span>
-                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
-                  </div>
+
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
                     <GiPistolGun />
                   </span>
@@ -224,7 +226,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:bg-white"
                     for="kingscanyon"
                   >
                     <span> Kings Canyon </span>
@@ -247,7 +249,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:bg-white"
                     for="worldsedge"
                   >
                     <span> Worlds Edge </span>
@@ -269,7 +271,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:bg-white"
                     for="stormpoint"
                   >
                     <span> Stormpoint </span>
@@ -291,7 +293,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:bg-white"
                     for="olympus"
                   >
                     <span> Olympus </span>
