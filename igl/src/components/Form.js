@@ -2,13 +2,14 @@ import { useEffect, useState } from "react";
 import { GiPistolGun } from "react-icons/gi";
 import { AiOutlineReload } from "react-icons/ai";
 import { GiDiceTarget } from "react-icons/gi";
-import {
-  legends,
-  Maps,
-  weaponsWithImages,
-} from "../dictionaries/Loadout";
+import { legends, Maps, weaponsWithImages } from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
-import { KingsCanyon, StormPoint, WorldsEdge, Olympus } from "../dictionaries/POIs";
+import {
+  KingsCanyon,
+  StormPoint,
+  WorldsEdge,
+  Olympus,
+} from "../dictionaries/POIs";
 
 const Form = () => {
   const [username1, setUsername1] = useState("");
@@ -16,8 +17,8 @@ const Form = () => {
   const [username3, setUsername3] = useState("");
   const [loadoutLoaded, setLoadoutLoaded] = useState(false);
   const [loadout, setLoadout] = useState([]);
-  const [poi, setPoi] = useState("")
-  const [randomPoi, setRandomPoi] = useState("")
+  const [poi, setPoi] = useState("");
+  const [randomPoi, setRandomPoi] = useState("");
 
   useEffect(() => {}, [loadoutLoaded]);
 
@@ -71,42 +72,45 @@ const Form = () => {
   };
 
   const getPOI = () => {
-    let pointOfInterest
+    let pointOfInterest;
     if (poi === "KingsCanyon") {
-      pointOfInterest = KingsCanyon[Math.floor(Math.random() * KingsCanyon.length)];
+      pointOfInterest =
+        KingsCanyon[Math.floor(Math.random() * KingsCanyon.length)];
     } else if (poi === "Olympus") {
       pointOfInterest = Olympus[Math.floor(Math.random() * Olympus.length)];
     } else if (poi === "StormPoint") {
-      pointOfInterest = StormPoint[Math.floor(Math.random() * StormPoint.length)];
+      pointOfInterest =
+        StormPoint[Math.floor(Math.random() * StormPoint.length)];
     } else if (poi === "WorldsEdge") {
-      pointOfInterest = WorldsEdge[Math.floor(Math.random() * WorldsEdge.length)];
+      pointOfInterest =
+        WorldsEdge[Math.floor(Math.random() * WorldsEdge.length)];
     } else {
-       console.debug("there is not point")
+      console.debug("there is not point");
     }
-    console.log(pointOfInterest)
-    setRandomPoi(pointOfInterest)
-  }
+    console.log(pointOfInterest);
+    setRandomPoi(pointOfInterest);
+  };
 
   const generateLoadout = () => {
-    getPOI()
+    getPOI();
     let loadOutForAllTeamMembers = [
       {
         username: username1,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend()
+        legend: getLegend(),
       },
       {
         username: username2,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend()
+        legend: getLegend(),
       },
       {
         username: username3,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend()
+        legend: getLegend(),
       },
     ];
     console.log(loadOutForAllTeamMembers);
@@ -148,7 +152,13 @@ const Form = () => {
                     onChange={updateUsername1}
                     required={true}
                   />
-
+                  <div class="flex mt-2">
+                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
+                    <span class="w-2.5 h-2.5 absolute -bottom-1 left-3">
+                      required
+                    </span>
+                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
+                  </div>
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
                     <GiPistolGun />
                   </span>
@@ -169,7 +179,13 @@ const Form = () => {
                     onChange={updateUsername2}
                     required={true}
                   />
-
+                  <div class="flex mt-2">
+                    <span class="animate-ping w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
+                    <span class="w-2.5 h-2.5 absolute -bottom-1 left-3">
+                      required
+                    </span>
+                    <span class="w-2.5 h-2.5 bg-green rounded-full absolute -bottom-3 -left-1"></span>
+                  </div>
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
                     <GiPistolGun />
                   </span>
@@ -280,10 +296,7 @@ const Form = () => {
                   >
                     <span> Olympus </span>
 
-                    <img
-                      class="object-cover h-32 w-full"
-                      src={Maps.Olympus}
-                    />
+                    <img class="object-cover h-32 w-full" src={Maps.Olympus} />
                   </label>
                 </div>
               </div>
