@@ -1,6 +1,7 @@
 
 const LoadoutGrid = (props) => {
   const { loadouts } = props;
+  const { poi } = props
   return (
     <section>
       <div class="max-w-screen-xl px-4 py-2 mx-auto">
@@ -10,6 +11,9 @@ const LoadoutGrid = (props) => {
           <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
             Loadouts
           </h2>
+          <h5 class="mt-1 text-sm font-extrabold tracking-wide uppercase lg:text-xl">
+            POI - {poi}
+          </h5>
         </div>
         <div class="container mx-auto">
           <div class="grid grid-cols-1 mt-8 lg:grid-cols-3 gap-x-8 gap-y-8">
@@ -57,12 +61,12 @@ const LoadoutGrid = (props) => {
                   </strong>
 
                   <strong class="inline-flex items-center border border-gray-200 rounded relative px-2.5 py-1.5 text-xs font-medium m-auto mt-3 h-12">
-                    <span class="animate-ping w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
+                    <span class="animate-ping w-2.5 h-2.5 bg-apexred-500 rounded-full absolute -top-1 -left-1"></span>
                     <span class="w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
 
                     <span class="text-gray-700"> Secondary: </span>
 
-                    <span class="text-apex-900 ml-1.5">
+                    <span class="text-apexred-900 ml-1.5">
                       {currentLoadout.secondary.weapon}
                     </span>
                   </strong>
