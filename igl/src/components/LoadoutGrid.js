@@ -57,12 +57,12 @@ const LoadoutGrid = (props) => {
                   </strong>
 
                   <strong class="inline-flex items-center border border-gray-200 rounded relative px-2.5 py-1.5 text-xs font-medium m-auto mt-3 h-12">
-                    <span class="animate-ping w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
+                    <span class="animate-ping w-2.5 h-2.5 bg-apexred-500 rounded-full absolute -top-1 -left-1"></span>
                     <span class="w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
 
                     <span class="text-gray-700"> Secondary: </span>
 
-                    <span class="text-apex-900 ml-1.5">
+                    <span class="text-apexred-900 ml-1.5">
                       {currentLoadout.secondary.weapon}
                     </span>
                   </strong>
