@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { GiPistolGun } from "react-icons/gi";
 import { AiOutlineReload } from "react-icons/ai";
-import { weapons } from "../dictionaries/Loadout";
+import { legends, weapons, weaponsWithImages } from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
 
 const Form = () => {
@@ -27,36 +27,60 @@ const Form = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
     setLoadoutLoaded(true);
-    console.table(generateLoadout());
+    // console.table(generateLoadout());
   };
 
   const getPrimaryWeapon = () => {
-    return weapons[Math.floor(Math.random() * weapons.length)];
+    let primaryLoadoutData = weaponsWithImages[Math.floor(Math.random() * weaponsWithImages.length)];
+    console.log(primaryLoadoutData)
+    const data = {
+      weapon: primaryLoadoutData.weapon,
+      img: primaryLoadoutData.img
+    }
+    return data
   };
 
   const getSecondaryWeapons = () => {
-    return weapons[Math.floor(Math.random() * weapons.length)];
-  };
+    let secondaryLoadoutData = weaponsWithImages[Math.floor(Math.random() * weaponsWithImages.length)];
+    const data = {
+      weapon: secondaryLoadoutData.weapon,
+      img: secondaryLoadoutData.img
+    }
+    return data
+  }
+
+  const getLegend = () => {
+
+    let selectALegend = legends[Math.floor(Math.random() * legends.length)];
+    const data = {
+      weapon: selectALegend.legend,
+      img: selectALegend.img
+    }
+    return data
+  }
 
   const generateLoadout = () => {
-    const loadOutForAllTeamMembers = [
+    let loadOutForAllTeamMembers = [
       {
         username: username1,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend()
       },
       {
         username: username2,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend()
       },
       {
         username: username3,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend()
       },
     ];
-    console.table(loadOutForAllTeamMembers);
+    console.log(loadOutForAllTeamMembers);
     return loadOutForAllTeamMembers;
   };
 

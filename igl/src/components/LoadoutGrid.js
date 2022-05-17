@@ -1,5 +1,6 @@
 import Havoc from "../images/weapons/Havoc.png";
 import Loba from "../images/legends/loba.png";
+import { legends, weaponsWithImages } from "../dictionaries/Loadout";
 
 const LoadoutGrid = (props) => {
   const { loadouts } = props;
@@ -14,34 +15,34 @@ const LoadoutGrid = (props) => {
           </h2>
         </div>
         <div class="container mx-auto">
-          <div class="grid grid-cols-1 mt-8 lg:grid-cols-3 gap-x-4 gap-y-8 relative">
+          <div class="grid grid-cols-1 mt-8 lg:grid-cols-3 gap-x-8 gap-y-8">
             {loadouts.map((currentLoadout, index) => (
-              <a
+              <div
                 href=""
-                class="block border-2 border-sky-500 p-6 rounded-lg shadow-xl bg-white"
+                class="block border-2 border-sky-500 p-6 rounded-lg shadow-xl bg-white relative"
                 key={index}
               >
                 <span class="animate-ping w-20 h-20 bg-green rounded-full absolute -top-10 -left-10 m-4 p-1"></span>
                 <img
                   class="absolute h-20 w-20 rounded-full -top-10 -left-10 border-2 border-apexred m-4 p-1 bg-white"
-                  src={Loba}
+                  src={currentLoadout.legend.img}
                 />
                 <div class="flex justify-center">
                   <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-apexred">
                     {" "}
-                    {currentLoadout.username}
+                    {currentLoadout.username} as {currentLoadout.legend.weapon}
                   </strong>
                 </div>
                 <div class="flex justify-center mt-6 p-6 rounded-lg gap-x-6">
                   <img
                     alt="Trainer Product"
-                    src={Havoc}
+                    src={currentLoadout.primary.img}
                     class="w-32 h-24 -mt-3 p-6 border-b-4 border-green"
                   />
 
                   <img
                     alt="Trainer Product"
-                    src={Havoc}
+                    src={currentLoadout.secondary.img}
                     class="w-32 h-24 -mt-3 p-6 border-b-4 border-apexred"
                   />
                 </div>
@@ -54,7 +55,7 @@ const LoadoutGrid = (props) => {
                     <span class="text-gray"> Primary: </span>
 
                     <span class="text-green ml-1.5">
-                      {currentLoadout.primary}
+                      {currentLoadout.primary.weapon}
                     </span>
                   </strong>
 
@@ -65,11 +66,11 @@ const LoadoutGrid = (props) => {
                     <span class="text-gray-700"> Secondary: </span>
 
                     <span class="text-apexred ml-1.5">
-                      {currentLoadout.secondary}
+                      {currentLoadout.secondary.weapon}
                     </span>
                   </strong>
                 </div>
-              </a>
+              </div>
             ))}
           </div>
         </div>
