@@ -1,4 +1,4 @@
-export let KingsCanyonPOIs = [
+export let KingsCanyon = [
     
         "Airbase",
         "Capacitor",
@@ -22,7 +22,7 @@ export let KingsCanyonPOIs = [
         "Crash Site",
 ]
 
-export let StormPointPOIs = [
+export let StormPoint = [
     "Ship Fall",
     "Gale Station",
     "Fish Farms",
@@ -43,7 +43,7 @@ export let StormPointPOIs = [
     "High Point",
 ]
 
-export let OlympusPOIs = [
+export let Olympus = [
     "Docks",
     "Carrier",
     "Power Grid",
@@ -67,7 +67,7 @@ export let OlympusPOIs = [
     "Solar Array",
 ]
 
-export let WorldsEdgePOIs = [
+export let WorldsEdge = [
     "The Dome",
     "Launch Site",
     "The Tree",

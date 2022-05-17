@@ -5,10 +5,10 @@ import { GiDiceTarget } from "react-icons/gi";
 import {
   legends,
   Maps,
-  weapons,
   weaponsWithImages,
 } from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
+import { KingsCanyon, StormPoint, WorldsEdge, Olympus } from "../dictionaries/POIs";
 
 const Form = () => {
   const [username1, setUsername1] = useState("");
@@ -16,6 +16,8 @@ const Form = () => {
   const [username3, setUsername3] = useState("");
   const [loadoutLoaded, setLoadoutLoaded] = useState(false);
   const [loadout, setLoadout] = useState([]);
+  const [poi, setPoi] = useState("")
+  const [randomPoi, setRandomPoi] = useState("")
 
   useEffect(() => {}, [loadoutLoaded]);
 
@@ -68,25 +70,43 @@ const Form = () => {
     return data;
   };
 
+  const getPOI = () => {
+    let pointOfInterest
+    if (poi === "KingsCanyon") {
+      pointOfInterest = KingsCanyon[Math.floor(Math.random() * KingsCanyon.length)];
+    } else if (poi === "Olympus") {
+      pointOfInterest = Olympus[Math.floor(Math.random() * Olympus.length)];
+    } else if (poi === "StormPoint") {
+      pointOfInterest = StormPoint[Math.floor(Math.random() * StormPoint.length)];
+    } else if (poi === "WorldsEdge") {
+      pointOfInterest = WorldsEdge[Math.floor(Math.random() * WorldsEdge.length)];
+    } else {
+       console.debug("there is not point")
+    }
+    console.log(pointOfInterest)
+    setRandomPoi(pointOfInterest)
+  }
+
   const generateLoadout = () => {
+    getPOI()
     let loadOutForAllTeamMembers = [
       {
         username: username1,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend(),
+        legend: getLegend()
       },
       {
         username: username2,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend(),
+        legend: getLegend()
       },
       {
         username: username3,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
-        legend: getLegend(),
+        legend: getLegend()
       },
     ];
     console.log(loadOutForAllTeamMembers);
@@ -94,7 +114,7 @@ const Form = () => {
   };
 
   return (
-    <div class="max-w-screen-xl px-4 py-16 mx-auto sm:px-6 lg:px-8">
+    <div class="max-w-screen-xl px-4 py-8 mx-auto sm:px-6 lg:px-8">
       <div class="max-w-lg mx-auto">
         {/* <p class="max-w-md mx-auto mt-4 text-center text-gray-500">
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati
@@ -174,7 +194,7 @@ const Form = () => {
                 </div>
               </div>
 
-              <div class="grid grid-cols-2 gap-8">
+              <div class="grid grid-cols-2 gap-8 lg:grid-cols-2">
                 <div class="relative">
                   <input
                     class="hidden group peer"
@@ -182,6 +202,7 @@ const Form = () => {
                     name="mapOption"
                     value="kingscanyon"
                     id="kingscanyon"
+                    onClick={() => setPoi("KingsCanyon")}
                   />
 
                   <label
@@ -204,6 +225,7 @@ const Form = () => {
                     name="mapOption"
                     value="worldsedge"
                     id="worldsedge"
+                    onClick={() => setPoi("WorldsEdge")}
                   />
 
                   <label
@@ -225,6 +247,7 @@ const Form = () => {
                     name="mapOption"
                     value="stormpoint"
                     id="stormpoint"
+                    onClick={() => setPoi("StormPoint")}
                   />
 
                   <label
@@ -246,6 +269,7 @@ const Form = () => {
                     name="mapOption"
                     value="olympus"
                     id="olympus"
+                    onClick={() => setPoi("Olympus")}
                   />
 
                   <label
@@ -283,9 +307,9 @@ const Form = () => {
       {loadoutLoaded === true && (
         <>
           {" "}
-          <div class="block m-auto flex w-1/2">
+          <div class="block m-auto flex gap-x-4">
             <button
-              class="flex items-center justify-center px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 m-auto"
+              class="flex items-center justify-center text-sm px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 h-20 m-auto"
               onClick={() => setLoadoutLoaded(false)}
             >
               New Loadout{" "}
@@ -295,7 +319,7 @@ const Form = () => {
             </button>
 
             <button
-              class="flex items-center justify-center px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 m-auto"
+              class="flex items-center justify-center text-sm px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 h-20 m-auto"
               onClick={() => generateLoadout()}
             >
               Reroll{" "}
@@ -304,7 +328,7 @@ const Form = () => {
               </span>
             </button>
           </div>
-          <LoadoutGrid loadouts={loadout} />
+          <LoadoutGrid loadouts={loadout} poi={randomPoi} />
         </>
       )}
     </div>

@@ -1,6 +1,7 @@
 
 const LoadoutGrid = (props) => {
   const { loadouts } = props;
+  const { poi } = props
   return (
     <section>
       <div class="max-w-screen-xl px-4 py-2 mx-auto">
@@ -10,6 +11,9 @@ const LoadoutGrid = (props) => {
           <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
             Loadouts
           </h2>
+          <h5 class="mt-1 text-sm font-extrabold tracking-wide uppercase lg:text-xl">
+            POI - {poi}
+          </h5>
         </div>
         <div class="container mx-auto">
           <div class="grid grid-cols-1 mt-8 lg:grid-cols-3 gap-x-8 gap-y-8">
