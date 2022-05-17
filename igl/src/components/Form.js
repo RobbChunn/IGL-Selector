@@ -146,6 +146,7 @@ const Form = () => {
                     class="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                     placeholder="username1"
                     onChange={updateUsername1}
+                    required={true}
                   />
 
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
@@ -166,6 +167,7 @@ const Form = () => {
                     class="w-full p-4 pr-12 text-sm border-gray-200 rounded-lg shadow-sm"
                     placeholder="username2"
                     onChange={updateUsername2}
+                    required={true}
                   />
 
                   <span class="absolute inset-y-0 inline-flex items-center right-4">
@@ -206,7 +208,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
                     for="kingscanyon"
                   >
                     <span> Kings Canyon </span>
@@ -229,7 +231,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
                     for="worldsedge"
                   >
                     <span> Worlds Edge </span>
@@ -251,7 +253,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
                     for="stormpoint"
                   >
                     <span> Stormpoint </span>
@@ -273,7 +275,7 @@ const Form = () => {
                   />
 
                   <label
-                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-white peer-checked:ring-1 peer-checked:ring-white"
                     for="olympus"
                   >
                     <span> Olympus </span>
