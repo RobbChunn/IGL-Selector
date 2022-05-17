@@ -1,7 +1,13 @@
 import { useEffect, useState } from "react";
 import { GiPistolGun } from "react-icons/gi";
 import { AiOutlineReload } from "react-icons/ai";
-import { weapons } from "../dictionaries/Loadout";
+import { GiDiceTarget } from "react-icons/gi";
+import {
+  legends,
+  Maps,
+  weapons,
+  weaponsWithImages,
+} from "../dictionaries/Loadout";
 import LoadoutGrid from "./LoadoutGrid";
 
 const Form = () => {
@@ -9,6 +15,7 @@ const Form = () => {
   const [username2, setUsername2] = useState("");
   const [username3, setUsername3] = useState("");
   const [loadoutLoaded, setLoadoutLoaded] = useState(false);
+  const [loadout, setLoadout] = useState([]);
 
   useEffect(() => {}, [loadoutLoaded]);
 
@@ -27,37 +34,63 @@ const Form = () => {
   const handleSubmission = (e) => {
     e.preventDefault();
     setLoadoutLoaded(true);
-    console.table(generateLoadout());
+    generateLoadout();
+    // console.table(generateLoadout());
   };
 
   const getPrimaryWeapon = () => {
-    return weapons[Math.floor(Math.random() * weapons.length)];
+    let primaryLoadoutData =
+      weaponsWithImages[Math.floor(Math.random() * weaponsWithImages.length)];
+    console.log(primaryLoadoutData);
+    const data = {
+      weapon: primaryLoadoutData.weapon,
+      img: primaryLoadoutData.img,
+    };
+    return data;
   };
 
   const getSecondaryWeapons = () => {
-    return weapons[Math.floor(Math.random() * weapons.length)];
+    let secondaryLoadoutData =
+      weaponsWithImages[Math.floor(Math.random() * weaponsWithImages.length)];
+    const data = {
+      weapon: secondaryLoadoutData.weapon,
+      img: secondaryLoadoutData.img,
+    };
+    return data;
+  };
+
+  const getLegend = () => {
+    let selectALegend = legends[Math.floor(Math.random() * legends.length)];
+    const data = {
+      weapon: selectALegend.legend,
+      img: selectALegend.img,
+    };
+    return data;
   };
 
   const generateLoadout = () => {
-    const loadOutForAllTeamMembers = [
+    let loadOutForAllTeamMembers = [
       {
         username: username1,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend(),
       },
       {
         username: username2,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend(),
       },
       {
         username: username3,
         primary: getPrimaryWeapon(),
         secondary: getSecondaryWeapons(),
+        legend: getLegend(),
       },
     ];
-    console.table(loadOutForAllTeamMembers);
-    return loadOutForAllTeamMembers;
+    console.log(loadOutForAllTeamMembers);
+    setLoadout(loadOutForAllTeamMembers);
   };
 
   return (
@@ -76,7 +109,7 @@ const Form = () => {
             </h1>
             <form
               action=""
-              class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-apexred"
+              class="p-8 mt-6 mb-0 space-y-4 rounded-lg shadow-2xl bg-apexred-900"
               onSubmit={handleSubmission}
             >
               {/* <p class="text-lg font-medium">Sign in to your account</p> */}
@@ -141,6 +174,94 @@ const Form = () => {
                 </div>
               </div>
 
+              <div class="grid grid-cols-2 gap-8">
+                <div class="relative">
+                  <input
+                    class="hidden group peer"
+                    type="radio"
+                    name="mapOption"
+                    value="kingscanyon"
+                    id="kingscanyon"
+                  />
+
+                  <label
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    for="kingscanyon"
+                  >
+                    <span> Kings Canyon </span>
+
+                    <img
+                      class="object-cover h-32 w-full"
+                      src={Maps.KingsCanyon}
+                    />
+                  </label>
+                </div>
+
+                <div class="relative">
+                  <input
+                    class="hidden group peer"
+                    type="radio"
+                    name="mapOption"
+                    value="worldsedge"
+                    id="worldsedge"
+                  />
+
+                  <label
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    for="worldsedge"
+                  >
+                    <span> Worlds Edge </span>
+
+                    <img
+                      class="object-cover h-32 w-full"
+                      src={Maps.WorldsEdge}
+                    />
+                  </label>
+                </div>
+                <div class="relative">
+                  <input
+                    class="hidden group peer"
+                    type="radio"
+                    name="mapOption"
+                    value="stormpoint"
+                    id="stormpoint"
+                  />
+
+                  <label
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    for="stormpoint"
+                  >
+                    <span> Stormpoint </span>
+
+                    <img
+                      class="object-cover h-32 w-full"
+                      src={Maps.Stormpoint}
+                    />
+                  </label>
+                </div>
+                <div class="relative">
+                  <input
+                    class="hidden group peer"
+                    type="radio"
+                    name="mapOption"
+                    value="olympus"
+                    id="olympus"
+                  />
+
+                  <label
+                    class="block p-4 text-sm font-medium transition-colors border border-gray-100 rounded-lg shadow-sm cursor-pointer peer-checked:border-blue-500 hover:bg-gray-50 peer-checked:ring-1 peer-checked:ring-white"
+                    for="olympus"
+                  >
+                    <span> Olympus </span>
+
+                    <img
+                      class="object-cover h-32 w-full"
+                      src={Maps.Olympus}
+                    />
+                  </label>
+                </div>
+              </div>
+
               <button
                 type="submit"
                 class="block w-full px-5 py-3 text-sm font-medium text-white bg-indigo-600 rounded-lg bg-apexblue"
@@ -162,7 +283,7 @@ const Form = () => {
       {loadoutLoaded === true && (
         <>
           {" "}
-          <div class="block m-auto">
+          <div class="block m-auto flex w-1/2">
             <button
               class="flex items-center justify-center px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 m-auto"
               onClick={() => setLoadoutLoaded(false)}
@@ -172,8 +293,18 @@ const Form = () => {
                 <AiOutlineReload />
               </span>
             </button>
+
+            <button
+              class="flex items-center justify-center px-8 py-4 font-bold transition bg-green-100 border-4 border-black rounded-xl focus:outline-none focus:ring shadow-[6px_6px_0_0_#000] hover:shadow-none active:bg-green-50 w-64 m-auto"
+              onClick={() => generateLoadout()}
+            >
+              Reroll{" "}
+              <span aria-hidden="true" class="ml-2 text-lg" role="img">
+                <GiDiceTarget />
+              </span>
+            </button>
           </div>
-          <LoadoutGrid loadouts={generateLoadout()} />
+          <LoadoutGrid loadouts={loadout} />
         </>
       )}
     </div>
