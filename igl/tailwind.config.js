@@ -4,6 +4,7 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    darkMode: 'class',
     backgroundImage: {
       'apex-banner': "url('/src/images/apexbanner.jpg')"
     },
@@ -17,7 +18,10 @@ module.exports = {
       'tahiti': '#3ab7bf',
       'green': '#86dc3d',
       'apexblue': '#6486df',
-      'apexred': '#d92a29',
+      'apexred': {
+        500: '#ffcccb',
+        900: '#d92a29'
+      } ,
     },
   },
   plugins: [],

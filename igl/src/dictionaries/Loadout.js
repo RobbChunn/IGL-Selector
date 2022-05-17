@@ -51,6 +51,12 @@ import Valk from "../images/legends/valk.png";
 import Wattson from "../images/legends/wattson.png";
 import Wraith from "../images/legends/wraith.png";
 
+// Maps
+import KingsCanyon from "../images/maps/kingscanyon.jpeg";
+import Olympus from "../images/maps/olympus.png";
+import Stormpoint from "../images/maps/stormpoint.png";
+import WorldsEdge from "../images/maps/worldsedge.png";
+
 export let weapons = [
   "HAVOC Rifle",
   "VK-47 Flatline",
@@ -284,3 +290,4 @@ export const legends = [
   },
 ];
 
+export const Maps = {KingsCanyon, Olympus, Stormpoint, WorldsEdge};

@@ -1,6 +1,3 @@
-import Havoc from "../images/weapons/Havoc.png";
-import Loba from "../images/legends/loba.png";
-import { legends, weaponsWithImages } from "../dictionaries/Loadout";
 
 const LoadoutGrid = (props) => {
   const { loadouts } = props;
@@ -8,7 +5,7 @@ const LoadoutGrid = (props) => {
     <section>
       <div class="max-w-screen-xl px-4 py-2 mx-auto">
         <div>
-          <span class="inline-block w-12 h-1 bg-apexred"></span>
+          <span class="inline-block w-12 h-1 bg-apex-900"></span>
 
           <h2 class="mt-1 text-2xl font-extrabold tracking-wide uppercase lg:text-3xl">
             Loadouts
@@ -24,12 +21,12 @@ const LoadoutGrid = (props) => {
               >
                 <span class="animate-ping w-20 h-20 bg-green rounded-full absolute -top-10 -left-10 m-4 p-1"></span>
                 <img
-                  class="absolute h-20 w-20 rounded-full -top-10 -left-10 border-2 border-apexred m-4 p-1 bg-white"
+                  class="absolute h-20 w-20 rounded-full -top-10 -left-10 border-2 border-apexred-900 m-4 p-1 bg-white object-cover"
                   src={currentLoadout.legend.img}
+                  alt=""
                 />
                 <div class="flex justify-center">
-                  <strong class="relative h-6 px-4 text-xs leading-6 text-white uppercase bg-apexred">
-                    {" "}
+                  <strong class="border border-apexred-900 text-white bg-apexred-900 uppercase px-5 py-1.5 rounded-full text-[10px] tracking-wide">
                     {currentLoadout.username} as {currentLoadout.legend.weapon}
                   </strong>
                 </div>
@@ -43,7 +40,7 @@ const LoadoutGrid = (props) => {
                   <img
                     alt="Trainer Product"
                     src={currentLoadout.secondary.img}
-                    class="w-32 h-24 -mt-3 p-6 border-b-4 border-apexred"
+                    class="w-32 h-24 -mt-3 p-6 border-b-4 border-apexred-900"
                   />
                 </div>
 
@@ -60,12 +57,12 @@ const LoadoutGrid = (props) => {
                   </strong>
 
                   <strong class="inline-flex items-center border border-gray-200 rounded relative px-2.5 py-1.5 text-xs font-medium m-auto mt-3 h-12">
-                    <span class="animate-ping w-2.5 h-2.5 bg-apexred rounded-full absolute -top-1 -left-1"></span>
-                    <span class="w-2.5 h-2.5 bg-apexred rounded-full absolute -top-1 -left-1"></span>
+                    <span class="animate-ping w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
+                    <span class="w-2.5 h-2.5 bg-apexred-900 rounded-full absolute -top-1 -left-1"></span>
 
                     <span class="text-gray-700"> Secondary: </span>
 
-                    <span class="text-apexred ml-1.5">
+                    <span class="text-apex-900 ml-1.5">
                       {currentLoadout.secondary.weapon}
                     </span>
                   </strong>
@@ -80,4 +77,3 @@ const LoadoutGrid = (props) => {
 };
 
 export default LoadoutGrid;
-
