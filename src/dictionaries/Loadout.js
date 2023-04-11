@@ -14,6 +14,7 @@ import Longbow from "../images/weapons/Longbow.png";
 import Lstar from "../images/weapons/Lstar.png";
 import Mastiff from "../images/weapons/Mastiff.png";
 import Mozambique from "../images/weapons/Mozambique.png";
+import Nemesis_Burst_AR from "../images/weapons/Nemesis_Burst_AR.webp"
 import P2020 from "../images/weapons/P2020.png";
 import Peacekeeper from "../images/weapons/Peacekeeper.png";
 import Prowler from "../images/weapons/Prowler.png";
@@ -56,9 +57,11 @@ import KingsCanyon from "../images/maps/kingscanyon.jpeg";
 import Olympus from "../images/maps/olympus.png";
 import Stormpoint from "../images/maps/stormpoint.png";
 import WorldsEdge from "../images/maps/worldsedge.png";
+import BrokenMoon from "../images/maps/brokenmoon.webp";
 
 export let weapons = [
   "HAVOC Rifle",
+  "Nemesis Burst AR",
   "VK-47 Flatline",
   "Hemlok Burst AR",
   "R-301 Carbine",
@@ -92,6 +95,10 @@ export let weaponsWithImages = [
   {
     weapon: "HAVOC Rifle",
     img: Havoc,
+  },
+  {
+    weapon: "Nemesis Burst AR",
+    img: Nemesis_Burst_AR,
   },
   {
     weapon: "VK-47 Flatline",
@@ -290,4 +297,4 @@ export const legends = [
   },
 ];
 
-export const Maps = {KingsCanyon, Olympus, Stormpoint, WorldsEdge};
+export const Maps = {KingsCanyon, Olympus, Stormpoint, WorldsEdge, BrokenMoon};
