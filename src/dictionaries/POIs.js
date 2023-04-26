@@ -89,3 +89,22 @@ export let WorldsEdge = [
     "Survey Camp",
     "Climatizer",
 ]
+
+export let BrokenMoon = [
+    "Breaker Wharf",
+    "Alpha Base",
+    "Backup Atmo",
+    "Eternal Gardens",
+    "The Divide",
+    "Bionomics",
+    "The Core",
+    "Stasis Array",
+    "North Promenade",
+    "Southe Promenade",
+    "Terraformer",
+    "Atmostation",
+    "Cultivation",
+    "The Foundry",
+    "Production Yard",
+    "Dry Gulch"
+]
